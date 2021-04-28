@@ -74,8 +74,17 @@ namespace RegistradorDeEquipamentos.ConsoleApp
             switch (check)
             {
                 case "1":
-                    Console.Write("Nome do quipamento: ");
-                    this.name = Console.ReadLine();
+                    do
+                    {
+                        Console.Write("Nome do quipamento: ");
+                        this.name = Console.ReadLine();
+                        if (name.Length < 6)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("O nome do equipamento precisa ter mais de 6 caracteres.");
+                            Console.ResetColor();
+                        }
+                    } while (name.Length < 6);
                     break;
 
                 case "2":
